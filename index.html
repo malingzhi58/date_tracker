@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love Counter for Evelyn</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .love-text {
+            font-size: 24px;
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="love-text">
+            I have been in love with Evelyn for <span id="days">0</span> days
+        </div>
+        <button onclick="increaseDays()">Add One Day</button>
+    </div>
+
+    <script>
+        // Get stored days from localStorage or start at 0
+        let days = parseInt(localStorage.getItem('loveDays')) || 0;
+        document.getElementById('days').textContent = days;
+
+        function increaseDays() {
+            days++;
+            document.getElementById('days').textContent = days;
+            // Save to localStorage to persist the count
+            localStorage.setItem('loveDays', days);
+        }
+    </script>
+</body>
+</html> 
